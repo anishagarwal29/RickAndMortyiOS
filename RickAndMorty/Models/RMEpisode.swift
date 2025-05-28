@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct RMEpisode: Codable {
+    let id: 
+}
