@@ -11,6 +11,7 @@ import UIKit
 final class RMTabBarController: UITabBarController {
 
     override func viewDidLoad() {
+      
         super.viewDidLoad()
         setUpTabs()
     }
@@ -31,9 +32,11 @@ final class RMTabBarController: UITabBarController {
         let nav3 = UINavigationController(rootViewController: episodesVC)
         let nav4 = UINavigationController(rootViewController: settingsVC)
         
+
+        
         // Mainly UI: Added images for each viewController in the tabBar
         nav1.tabBarItem = UITabBarItem(title: "Characters",
-                                       image: UIImage(systemName: "person"),
+                                       image: UIImage(systemName: "person.fill"),
                                        tag: 1)
         nav2.tabBarItem = UITabBarItem(title: "Locations",
                                        image: UIImage(systemName: "globe.central.south.asia.fill"),
@@ -45,7 +48,7 @@ final class RMTabBarController: UITabBarController {
                                        image: UIImage(systemName: "gear"),
                                        tag: 4)
         
-        
+        tabBar.tintColor = .systemPurple
         
         
         for nav in [nav1, nav2, nav3, nav4] {
