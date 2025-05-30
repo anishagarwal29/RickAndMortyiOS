@@ -7,12 +7,7 @@
 
 import Foundation
 
-struct RMORigin: Codable {
-    let id: Int
+struct RMOrigin: Codable {
     let name: String
-    let type: String
-    let dimension: String
-    let residents: [String]
     let url: String
-    let created: String
 }

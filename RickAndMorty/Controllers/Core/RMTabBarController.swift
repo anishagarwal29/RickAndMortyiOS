@@ -48,7 +48,7 @@ final class RMTabBarController: UITabBarController {
                                        image: UIImage(systemName: "gear"),
                                        tag: 4)
         
-        tabBar.tintColor = .systemPurple
+        tabBar.tintColor = .systemMint
         
         
         for nav in [nav1, nav2, nav3, nav4] {
