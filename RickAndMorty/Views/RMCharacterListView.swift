@@ -7,9 +7,17 @@
 
 import UIKit
 
+protocol RMCharacterListViewDelegate: AnyObject {
+    func rmCharacterListView(
+        _ characterListView: RMCharacterListView,
+        didSelectCharacter character: RMCharacter)
+}
+
 
 /// View that handles showing lost of characters, loaders, etc.
 final class RMCharacterListView: UIView {
+    
+    public weak var delegate: RMCharacterListViewDelegate?
     
     private let viewModel = RMCharacterListViewViewModel()
     
@@ -23,7 +31,7 @@ final class RMCharacterListView: UIView {
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 20, right: 10)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isHidden = true
         collectionView.alpha = 0
@@ -75,6 +83,10 @@ final class RMCharacterListView: UIView {
 }
 
 extension RMCharacterListView: RMCharacterListViewViewModelDelegate {
+    func didSelectCharacter(_ character: RMCharacter) {
+        delegate?.rmCharacterListView(self, didSelectCharacter: character)
+    }
+    
     func didLoadInitialCharacters() {
         spinner.stopAnimating()
         
